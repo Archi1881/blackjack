@@ -28,12 +28,36 @@ class Interface
     gets.chomp.to_i    
   end
 
+  def show_player_cards(player, player_interface_cards)
+    puts
+    puts "Карты #{player.name}: #{player_interface_cards.join(', ')}"
+    puts "Сумма: #{player.hand.score}"
+    puts 'Карты дилера: ************'
+    puts 'Сумма: **'
+    puts
+  end
+
+  def open_cards(player, dealer, player_interface_cards, dealer_interface_cards)
+    puts
+    puts "Карты #{player.name}: #{player_interface_cards.join(', ')}"
+    puts "Сумма: #{player.hand.score}"
+    puts "Карты дилера: #{dealer_interface_cards.join(', ')}"
+    puts "Сумма: #{dealer.hand.score}"
+    puts
+  end
+
+  def balance_info(player, dealer, bank)
+    puts
+    puts '| Ставка $10 |'
+    puts "| Баланс | #{player.name}: $#{player.money} | Дилер: $#{dealer.money} | Банк $#{bank} |"
+  end
+
   def player_win
-    puts "Вы выйграли!)))"    
+    puts "Вы выйграли!)))"
   end
 
   def player_lose
-    puts "Вы проиграли!((("    
+    puts "Вы проиграли!((("
   end
 
   def draw

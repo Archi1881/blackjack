@@ -10,7 +10,8 @@ class Card
 
 	attr_reader :suite, :value
 
-  def initialize(suite, value)
+  def initialize(name, suite, value)
+  	@name = name
   	@suite = suite
   	@value = value
   end

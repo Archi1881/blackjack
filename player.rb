@@ -1,7 +1,10 @@
+require_relative 'hand.rb'
+
 class Player
-	attr_accessor :name, :money
-	def initialize(name,money = 100)
+	attr_accessor :name, :money, :hand
+	def initialize(name = 'Player',money = 100)
 		@name = name
-		@money = money		
+		@money = money
+		@hand = Hand.new
 	end
 end
