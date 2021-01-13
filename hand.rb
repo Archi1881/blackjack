@@ -9,9 +9,9 @@ class Hand
   def get_card(card)
     @current_cards << card
       if card.value == 11 && @score + card.value > 21
-      @score += 1
-    else
-      @score += card.value
-    end
+        @score += 1
+      else
+        @score += card.value
+      end
   end
 end

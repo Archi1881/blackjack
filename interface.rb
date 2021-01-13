@@ -1,5 +1,4 @@
 class Interface
-  
   def start
     puts 'Добро пожаловать в игру BlackJack'
     puts '_________________________________'
@@ -7,25 +6,28 @@ class Interface
 
   def player_name
     print 'Как Вас зовут?  '
-    player_name = gets.chomp.capitalize
+    gets.chomp.capitalize
+  end
+
+  def hello(player)
     puts "Привет #{player_name} у тебя на счету #{player.money}$"
   end
-  
+
   def action_player
-    puts "Ваши действия: "
-    puts "1. Пропустить"
-    puts "2. Добавить карту"
-    puts "3. Открыть карты"
+    puts 'Ваши действия: '
+    puts '1. Пропустить'
+    puts '2. Добавить карту'
+    puts '3. Открыть карты'
     print 'Выбор: '
-    gets.chomp.to_i    
+    gets.chomp.to_i
   end
 
   def next_game
-    puts "Продолжаем?"
-    puts "1. ДА"
-    puts "2. НЕТ"
+    puts 'Продолжаем?'
+    puts '1. ДА'
+    puts '2. НЕТ'
     print 'Ваш выбор: '
-    gets.chomp.to_i    
+    gets.chomp.to_i
   end
 
   def show_player_cards(player, player_interface_cards)
@@ -53,14 +55,14 @@ class Interface
   end
 
   def player_win
-    puts "Вы выйграли!)))"
+    puts 'Вы выйграли!)))'
   end
 
   def player_lose
-    puts "Вы проиграли!((("
+    puts 'Вы проиграли!((('
   end
 
   def draw
-    puts "НИЧЬЯ!"
+    puts 'НИЧЬЯ!'
   end
 end

@@ -1,7 +1,7 @@
-require_relative 'player.rb'
-require_relative 'dealer.rb'
-require_relative 'deck.rb'
-require_relative 'interface.rb'
+require_relative 'player'
+require_relative 'dealer'
+require_relative 'deck'
+require_relative 'interface'
 
 class Game
   attr_reader :player, :dealer, :interface, :deck, :bank
@@ -14,14 +14,14 @@ class Game
   end
 
   def hello
-    @interface.player_name(@player)
+    @interface.hello(@player)
   end
 
   def begin
     interface.start
     @player.name = @interface.player_name
     hello
-    new_game   
+    new_game
   end
 
   def new_game
@@ -73,7 +73,7 @@ class Game
     gamer.hand.current_cards.each do |card|
       show_cards << [card.name, card.suit].join
     end
-    return show_cards
+    show_cards
   end
 
   def player_choice
@@ -121,7 +121,7 @@ class Game
   end
 
   def one_more_card(gamer)
-    gamer.hand.get_card(@deck.first_card) if gamer.hand.current_cards.length <= 2
+    gamer.hand.get_card(@deck) if gamer.hand.current_cards.length <= 2
   end
 
   def skip
@@ -130,12 +130,12 @@ class Game
 
   def result
     if @player.hand.score < 22 && @dealer.hand.score < 22 &&
-      @player.hand.score > @dealer.hand.score
+       @player.hand.score > @dealer.hand.score
       player_win
     elsif @player.hand.score < 22 && @dealer.hand.score > 21
       player_win
     elsif @player.hand.score < 22 && @dealer.hand.score < 22 &&
-      @player.hand.score < @dealer.hand.score
+          @player.hand.score < @dealer.hand.score
       player_lost
     elsif @player.hand.score > 21 && @dealer.hand.score < 22
       player_lost
